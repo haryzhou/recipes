@@ -9,12 +9,12 @@
 1. 产生harygithub的公私钥对
 
    ```
-   ssh-keygen -i ~/.ssh/hg
+   gardenia:github zhouchao$ ssh-keygen -i ~/.ssh/hg
    ```
 2. 产生haryzhou的公私钥对
 
    ```
-   ssh-keygen
+   gardenia:github zhouchao$ ssh-keygen
    ```
 3. 编辑~/.ssh/config文件
 
@@ -37,19 +37,19 @@
 6. hg在harygithub中生效 
   
    ```
-   ssh -T hg
+   gardenia:github zhouchao$ ssh -T hg
    ```
 7. hary在haryzhou中生效
 
    ```
-   ssh -T hary
+   gardenia:github zhouchao$ ssh -T hary
    ```
 8. 开始使用
 
    ```
    # 以harygithub访问
-   git clone hg:harygithub/zdemo.git
+   gardenia:github zhouchao$ git clone hg:harygithub/zdemo.git
    # 以haryzhou访问
-   git clone hary:haryzhou/recipes.git
+   gardenia:github zhouchao$ git clone hary:haryzhou/recipes.git
    ```
 
