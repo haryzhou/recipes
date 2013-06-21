@@ -7,8 +7,9 @@
 
 ## 解决方案
 
-1. 产生公私钥对: `ssh-keygen -i ~/.ssh/hg`
-2. 编辑~/.ssh/config文件
+1. 产生harygithub的公私钥对: `ssh-keygen -i ~/.ssh/hg`
+2. 产生haryzhou的公私钥对: `ssh-keygen -i`
+3. 编辑~/.ssh/config文件
 
    ```
    host hg
@@ -17,16 +18,24 @@
        port 22
        PreferredAuthentications publickey
        identityfile ~/.ssh/hg
+   hary hary
+       user git
+       hostname github.com
+       port 22
+       PreferredAuthentications publickey
+       identityfile ~/.ssh/id_rsa
    ```
 
-3. 将~/.ssh/hg.pub配置到你harygithub账户中
-4. hg在harygithub中生效: `ssh hg`
-5. 开始使用
+4. 将~/.ssh/hg.pub配置到你harygithub账户中
+5. 将~/.ssh/id_rsa.pub配置到你haryzhou账户中
+6. hg在harygithub中生效: `ssh -T hg`
+7. hary在haryzhou中生效: `ssh -T hary`
+8. 开始使用
 
    ```
    # 以harygithub访问
    git clone hg:harygithub/zdemo.git
    # 以haryzhou访问
-   git clone git@github.com:haryzhou/recipes.git
+   git clone hary:haryzhou/recipes.git
    ```
 
