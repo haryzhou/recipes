@@ -41,3 +41,15 @@
 
    ![remote-box---->remote-gate:5555===隧道====local-gate----->local-app:9494](images/remote_proxy.png)
 
+3. 例子
+   ```
+   # 在local-app上启动9494服务
+   ./svc.pl '127.0.0.2' 9494
+
+   # 在local-gate(127.0.0.1)上建立本地转发隧道
+   ssh -CfNg -R 5555:127.0.0.2:9494 zhouchao@127.0.1.1
+
+   # 在remote-box发起到127.0.1.1:5555访问
+   GET 'http://127.0.1.1:5555/'
+   ```
+
