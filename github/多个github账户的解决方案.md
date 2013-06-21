@@ -20,7 +20,7 @@
    ```
 
 3. 将~/.ssh/hg.pub配置到你harygithub账户中
-4. hg在harygithub中生效: `ssh -T git@hg`
+4. hg在harygithub中生效: `ssh hg`
 5. 开始使用
 
    ```
