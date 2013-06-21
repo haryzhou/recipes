@@ -6,8 +6,16 @@
 2. 你希望在本地一个用户下同时使用这个两个github用户
 
 ## 解决方案
-1. 产生harygithub的公私钥对: `ssh-keygen -i ~/.ssh/hg`
-2. 产生haryzhou的公私钥对: `ssh-keygen -i`
+1. 产生harygithub的公私钥对
+
+   ```
+   ssh-keygen -i ~/.ssh/hg
+   ```
+2. 产生haryzhou的公私钥对
+
+   ```
+   ssh-keygen
+   ```
 3. 编辑~/.ssh/config文件
 
    ```
@@ -26,8 +34,16 @@
    ```
 4. 将~/.ssh/hg.pub配置到你harygithub账户中
 5. 将~/.ssh/id_rsa.pub配置到你haryzhou账户中
-6. hg在harygithub中生效: `ssh -T hg`
-7. hary在haryzhou中生效: `ssh -T hary`
+6. hg在harygithub中生效 
+  
+   ```
+   ssh -T hg
+   ```
+7. hary在haryzhou中生效
+
+   ```
+   ssh -T hary
+   ```
 8. 开始使用
 
    ```
