@@ -37,5 +37,6 @@
    # 3. 看起来好像是local-box直接访问remote-app一样
    ```
 2. 图示
+
    ![local-box---->local-gate:5555===隧道====remote-gate----->remote-app:9494](images/local_proxy.png)
 
