@@ -18,6 +18,7 @@
    use POE;
 
    Zeta::POE::HTTPD->spawn( 
+       ip       => '127.0.02',
        port     => 9494, 
        callback => sub { 'hello world'; },
    );

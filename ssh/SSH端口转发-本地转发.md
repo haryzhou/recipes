@@ -18,6 +18,7 @@
    use POE;
 
    Zeta::POE::HTTPD->spawn( 
+       ip       => '127.0.1.2',
        port     => 9494, 
        callback => sub { 'hello world'; },
    );
@@ -39,4 +40,16 @@
 2. 图示
 
    ![local-box---->local-gate:5555===隧道====remote-gate----->remote-app:9494](images/local_proxy.png)
+3. 例子
+   
+   ```
+   # 在remote-app上启动9494服务
+   ./svc.pl '127.0.0.2' 9494
+
+   # 在local-gate(127.0.0.1)上建立本地转发隧道
+   ssh -CfNg -L 5555:127.0.0.2:9494 zhouchao@127.0.0.1
+
+   # 在local-box发起到127.0.0.1:5555访问
+   GET 'http://127.0.0.1:5555/' 
+   ```
 
