@@ -3,6 +3,11 @@
 ############################################################
 # bash线程池
 ############################################################
+# 环境变量:
+#     PGRP_DEBUG :  直接运行测试
+#
+############################################################
+#
 # API:
 #     1. pg_init : 初始化线程池， 设置线程大小
 #                : pg_init 4
@@ -102,26 +107,32 @@ worker(){
         sleep 1;
         ((i=i+1));
     done
-}                                                                                                                     
-# Main
-if check_cmd worker; then
-    rtn=$?
+}                                                                                                                  
 
-    #--------------DIY BEGIN----------------
-    # 初始化线程池 
-    pg_init 4
-
-    # 启动线程
-    for i in `seq 100`
-    do
-        # worker为调用的子进程函数，可以在后边加参数 
-        thread worker "t-$i" $i 
-    done
-
-    # 等待子进程都执行完毕后退出                                                            
-    pg_wait && exit $? 
-    #-------------DIY END ------------------
-else
-    exit $rtn
-fi                                        
+#
+# PGRP_DEBUG情况下, 测试运行pgrp.sh
+#
+if [[ -n ${PGRP_DEBUG} ]]; then
+    # Main
+    if check_cmd worker; then
+        rtn=$?
+    
+        #--------------DIY BEGIN----------------
+        # 初始化线程池 
+        pg_init 4
+    
+        # 启动线程
+        for i in `seq 100`
+        do
+            # worker为调用的子进程函数，可以在后边加参数 
+            thread worker "t-$i" $i 
+        done
+    
+        # 等待子进程都执行完毕后退出                                                            
+        pg_wait && exit $? 
+        #-------------DIY END ------------------
+    else
+        exit $rtn
+    fi                                        
+fi
 
