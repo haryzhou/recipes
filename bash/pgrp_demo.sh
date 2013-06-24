@@ -21,20 +21,17 @@ hary(){
 if check_cmd hary; then
     rtn=$?
 
-    #--------------DIY BEGIN----------------
     # 初始化线程池 
     pg_init 4
 
     # 启动线程
     for i in `seq 10`
     do
-        # hary为调用的子进程函数，可以在后边加参数 
-        thread hary "t-$i" $i 
+        thread hary "t-$i" $i   # hary为调用的子进程函数，可以在后边加参数  
     done
 
     # 等待子进程都执行完毕后退出                                                            
     pg_wait && exit $? 
-    #-------------DIY END ------------------
 else
     exit $rtn
 fi                                        
