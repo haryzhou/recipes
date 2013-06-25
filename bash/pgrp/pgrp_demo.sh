@@ -17,7 +17,7 @@ hary(){
         ((i=i+1));
     done
 }                                                                                                                     
-# Main
+# 主函数
 if check_cmd hary; then
     rtn=$?
 
@@ -27,7 +27,7 @@ if check_cmd hary; then
     # 启动线程
     for i in `seq 10`
     do
-        thread hary "t-$i" $i   # hary为调用的子进程函数，可以在后边加参数  
+        thread hary "t-$i" $i   # hary为调用的子进程函数，可以在后边加参数: name p1 ... pN
     done
 
     # 等待子进程都执行完毕后退出                                                            
